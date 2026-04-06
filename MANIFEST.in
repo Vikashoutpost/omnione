@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include omnione *.css
+recursive-include omnione *.csv
+recursive-include omnione *.html
+recursive-include omnione *.ico
+recursive-include omnione *.js
+recursive-include omnione *.json
+recursive-include omnione *.md
+recursive-include omnione *.png
+recursive-include omnione *.py
+recursive-include omnione *.svg
+recursive-include omnione *.txt
+recursive-exclude omnione *.pyc
