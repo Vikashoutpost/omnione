@@ -63,14 +63,19 @@ def create_purchase_order(data=None):
             po.order_confirmation_no = data.get("order_confirmation_no")
         if data.get("payment_terms_template"):
             po.payment_terms_template = data.get("payment_terms_template")
-        if data.get("department"):
-            po.department = data.get("department")
         if data.get("channel"):
             po.channel = data.get("channel")
-        if data.get("cost_center"):
-            po.cost_center = data.get("cost_center")
-        if data.get("set_warehouse"):
-            po.set_warehouse = data.get("set_warehouse")
+
+        # Determine destination defaults to match configuration
+        temp_company = po.company or frappe.defaults.get_user_default("Company") or frappe.db.get_single_value("Global Defaults", "default_company")
+        default_cost_center = frappe.db.get_value("Company", temp_company, "cost_center") if temp_company else None
+        default_warehouse = frappe.db.get_single_value("Stock Settings", "default_warehouse")
+
+        po.department = "All Departments"
+        if default_cost_center:
+            po.cost_center = default_cost_center
+        if default_warehouse:
+            po.set_warehouse = default_warehouse
         if data.get("shipment_id"):
             po.shipment_id = data.get("shipment_id")
         if data.get("supplier_so_no"):
@@ -90,8 +95,13 @@ def create_purchase_order(data=None):
 
             if not child.get("channel") and data.get("channel"):
                 child.channel = data.get("channel")
-            if not child.get("cost_center") and data.get("cost_center"):
-                child.cost_center = data.get("cost_center")
+            
+            # Forcefully override item defaults so they don't break validation
+            child.department = "All Departments"
+            if default_cost_center:
+                child.cost_center = default_cost_center
+            if default_warehouse:
+                child.warehouse = default_warehouse
                 
         po.set_missing_values()
 
@@ -150,8 +160,8 @@ def create_purchase_order(data=None):
         frappe.log_error(title="Create Purchase Order Error", message=frappe.get_traceback())
         
         frappe.response["http_status_code"] = 400
+        frappe.response["traceback"] = frappe.get_traceback()
         return {
             "status": "error",
-            "message": error_msg or "An error occurred while creating the Purchase Order.",
-            "traceback": frappe.get_traceback()
+            "message": error_msg or "An error occurred while creating the Purchase Order."
         }
