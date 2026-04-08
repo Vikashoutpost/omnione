@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:company_name",
+ "creation": "2026-04-06 10:14:08.863417",
+ "description": "Supports multi-entity integration, enabling centralized management of API configurations, authentication, and communication between distributed retail systems.",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "site_url",
+  "api_key",
+  "api_secret_key",
+  "doctype_connection_section",
+  "create_for_doctypes"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "site_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Site Url",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "API Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_secret_key",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "API Secret Key",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctype_connection_section",
+   "fieldtype": "Section Break",
+   "label": "Doctype Connection"
+  },
+  {
+   "fieldname": "create_for_doctypes",
+   "fieldtype": "Table",
+   "label": "Create For Doctypes",
+   "options": "Omnione Items"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-07 05:06:05.558150",
+ "modified_by": "Administrator",
+ "module": "Omni One",
+ "name": "Omnione Entity",
+ "name_case": "Title Case",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

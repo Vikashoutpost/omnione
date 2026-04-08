@@ -9,6 +9,12 @@ app_color = "grey"
 app_email = "anas@outpost.work"
 app_license = "MIT"
 
+app_required=["frappe/erpnext"]
+
+
+after_install="omnione.customizations.purchase_order_custom.create_custom_fields"
+after_uninstall="omnione.customizations.purchase_order_custom.delete_custom_fields"
+after_migrate="omnione.customizations.purchase_order_custom.create_custom_fields"
 # Includes in <head>
 # ------------------
 
@@ -95,13 +101,11 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-#	"*": {
-#		"on_update": "method",
-#		"on_cancel": "method",
-#		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Purchase Order": {
+		"on_submit": "omnione.utils.omnione_trigger.trigger_omnione_on_po_submit"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

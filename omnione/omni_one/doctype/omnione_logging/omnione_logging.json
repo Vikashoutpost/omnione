@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-07 10:29:44.515630",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "method",
+  "doctypes",
+  "response",
+  "doctype_id",
+  "entity",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "method",
+   "fieldtype": "Select",
+   "label": "Method",
+   "options": "\nPOST\nGET"
+  },
+  {
+   "fieldname": "doctypes",
+   "fieldtype": "Data",
+   "label": "Doctypes"
+  },
+  {
+   "fieldname": "response",
+   "fieldtype": "Small Text",
+   "label": "Response"
+  },
+  {
+   "fieldname": "doctype_id",
+   "fieldtype": "Data",
+   "label": "Doctype ID"
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Entity",
+   "options": "Omnione Entity"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nSuccess\nFailed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-07 10:29:44.515630",
+ "modified_by": "Administrator",
+ "module": "Omni One",
+ "name": "Omnione Logging",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-06 10:11:42.014229",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_omnione",
+  "omnione_link_doctype"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enable_omnione",
+   "fieldtype": "Check",
+   "label": "Enable Omnione"
+  },
+  {
+   "depends_on": "eval:doc.enable_omnione",
+   "fieldname": "omnione_link_doctype",
+   "fieldtype": "Table",
+   "label": "Omnione Link Doctype",
+   "mandatory_depends_on": "eval:doc.enable_omnione",
+   "options": "Omnione Settings Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-06 10:36:27.502796",
+ "modified_by": "Administrator",
+ "module": "Omni One",
+ "name": "Omnione Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

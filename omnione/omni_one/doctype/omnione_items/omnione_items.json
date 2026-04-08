@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-04-06 10:22:36.079544",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "doctypes",
+  "method",
+  "party_type",
+  "income_account",
+  "expense_account",
+  "party_name",
+  "party_account",
+  "enabled_party"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctypes",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Doctype",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Party Type",
+   "options": "\nCustomer\nSupplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "income_account",
+   "fieldtype": "Data",
+   "label": "Income Account"
+  },
+  {
+   "fieldname": "expense_account",
+   "fieldtype": "Data",
+   "label": "Expense Account"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name"
+  },
+  {
+   "fieldname": "party_account",
+   "fieldtype": "Data",
+   "label": "Party Account"
+  },
+  {
+   "fieldname": "method",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Method",
+   "reqd": 1
+  },
+  {
+   "fieldname": "enabled_party",
+   "fieldtype": "Data",
+   "label": "Enabled Party",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-07 10:18:24.570930",
+ "modified_by": "Administrator",
+ "module": "Omni One",
+ "name": "Omnione Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
