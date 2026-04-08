@@ -126,7 +126,7 @@ def _trigger_omnione(doc, doctype_name):
         api_secret_key = entity.get_password("api_secret_key")
 
         auth_header = {
-            "Authorization": f"token {api_secret_key}:{api_key}",
+            "Authorization": f"token {api_key}:{api_secret_key}",
             "Content-Type": "application/json",
         }
 
@@ -268,7 +268,7 @@ def _build_po_payload(doc, party_type, party_details, doctype_row):
         "income_account":     doctype_row.get("income_account"),
         "expense_account":    doctype_row.get("expense_account"),
         "omnione":            1, # Mark this as 1 for the destination ERP
-        "company":            doc.company,
+        # "company":            doc.company, # Omitted to allow destination to use its default company
         "transaction_date":   str(doc.transaction_date) if doc.transaction_date else None,
         "schedule_date":      str(doc.schedule_date)    if doc.schedule_date    else None,
         "grand_total":        doc.grand_total,

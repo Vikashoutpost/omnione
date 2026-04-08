@@ -122,7 +122,7 @@ def create_purchase_order(data=None):
 
         po.calculate_taxes_and_totals()
 
-        po.flags.ignore_links = True
+        # Removed ignore_links so invalid data (like missing company) throws a clear error.
 
         po.insert(ignore_permissions=True)
         
@@ -152,5 +152,6 @@ def create_purchase_order(data=None):
         frappe.response["http_status_code"] = 400
         return {
             "status": "error",
-            "message": error_msg or "An error occurred while creating the Purchase Order."
+            "message": error_msg or "An error occurred while creating the Purchase Order.",
+            "traceback": frappe.get_traceback()
         }
